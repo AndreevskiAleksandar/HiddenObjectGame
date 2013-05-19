@@ -22,5 +22,6 @@ namespace HiddenObjectGame
             radius_y = r_y;
         }
 
+
     }
 }

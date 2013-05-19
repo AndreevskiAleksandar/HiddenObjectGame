@@ -24,7 +24,7 @@ namespace HiddenObjectGame
                     lista.Add(new HiddenObject(228, 241, 32, 72));  //brush
                     lista.Add(new HiddenObject(465, 145, 30, 100));  //skrew
                     lista.Add(new HiddenObject(128, 20, 30, 100));  //knife
-                    lista.Add(new HiddenObject(347, 89, 30, 75));  //nunchucks
+                    lista.Add(new HiddenObject(347, 89, 30, 75));  //Golden Bell
                     break;
                 case 2:
                     lista.Add(new HiddenObject(60, 550, 37, 37)); //seashell
