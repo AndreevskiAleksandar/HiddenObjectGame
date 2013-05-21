@@ -23,6 +23,18 @@ namespace HiddenObjectGame
         public Form1()
         {
             InitializeComponent();
+            label1.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label2.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label3.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label4.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label5.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label6.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label7.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label8.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label9.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label10.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label11.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
+            label12.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             b = new SolidBrush(Color.LightGreen);
             newGame();
         }
@@ -33,6 +45,9 @@ namespace HiddenObjectGame
             switch (level)
             {
                 case 1:
+                    Form2 f = new Form2(1);
+                    f.ShowDialog();
+                    this.BackColor = Color.Gainsboro;
                     bit = new Bitmap(Resources.hidden_object_prison_final);
                     label1.Text = "Spider";
                     label2.Text = "Stones";
@@ -44,8 +59,13 @@ namespace HiddenObjectGame
                     label8.Text = "Skrew";
                     label9.Text = "Knife";
                     label10.Text = "Golden Bell";
+                    MessageBox.Show("                                                           First Level \n(If you want to skip the conversation with the wisp just click the red x (close) button in the top right corner)");
                     break;
                 case 2:
+                    Form2 f2 = new Form2(2);
+                    f2.ShowDialog();
+                    MessageBox.Show("Halfway there.. Level Two");
+                    this.BackColor = Color.DarkKhaki;
                     if (button1.Enabled == false)
                     {
                         button1.Enabled = true;
@@ -72,8 +92,13 @@ namespace HiddenObjectGame
                     label8.Font = new Font(label8.Font, FontStyle.Regular);
                     label9.Font = new Font(label9.Font, FontStyle.Regular);
                     label10.Font = new Font(label10.Font, FontStyle.Regular);
+                    
                     break;
                 case 3:
+                    Form2 f3 = new Form2(3);
+                    f3.ShowDialog();
+                    MessageBox.Show("Last Level");
+                    this.BackColor = Color.Chocolate;
                     if (button1.Enabled == false)
                     {
                         button1.Enabled = true;
@@ -100,9 +125,12 @@ namespace HiddenObjectGame
                     label8.Font = new Font(label8.Font, FontStyle.Regular);
                     label9.Font = new Font(label9.Font, FontStyle.Regular);
                     label10.Font = new Font(label10.Font, FontStyle.Regular);
+                 
                     break;
                 case 4:
-                    MessageBox.Show("Yey... You Won");
+                    Form2 f4 = new Form2(4);
+                    f4.ShowDialog();
+                    MessageBox.Show("Yey... You Won ^_^ \nYour score is: "+label12.Text);
                     Close();
                     break;
             }
