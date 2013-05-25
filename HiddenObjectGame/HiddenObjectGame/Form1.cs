@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using HiddenObjectGame.Properties;
+using System.Media;
 
 namespace HiddenObjectGame
 {
@@ -19,10 +20,15 @@ namespace HiddenObjectGame
         Bitmap bit;
         int level = 1;
         GameObjects game;
-        
+        string player_name;
+        public HighScore h;
+        int ind=0;
+
         public Form1()
         {
             InitializeComponent();
+            SoundPlayer player = new SoundPlayer(Resources.Silent_Hill_2_OST___Promise__Reprise_);
+            player.PlayLooping();
             label1.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             label2.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             label3.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
@@ -36,6 +42,8 @@ namespace HiddenObjectGame
             label11.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             label12.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             b = new SolidBrush(Color.LightGreen);
+            h = new HighScore();
+            player_name = "";
             newGame();
         }
 
@@ -49,6 +57,16 @@ namespace HiddenObjectGame
                     f.ShowDialog();
                     this.BackColor = Color.Gainsboro;
                     bit = new Bitmap(Resources.hidden_object_prison_final);
+                    label1.Font = new Font(label1.Font, FontStyle.Regular);
+                    label2.Font = new Font(label2.Font, FontStyle.Regular);
+                    label3.Font = new Font(label3.Font, FontStyle.Regular);
+                    label4.Font = new Font(label4.Font, FontStyle.Regular);
+                    label5.Font = new Font(label5.Font, FontStyle.Regular);
+                    label6.Font = new Font(label6.Font, FontStyle.Regular);
+                    label7.Font = new Font(label7.Font, FontStyle.Regular);
+                    label8.Font = new Font(label8.Font, FontStyle.Regular);
+                    label9.Font = new Font(label9.Font, FontStyle.Regular);
+                    label10.Font = new Font(label10.Font, FontStyle.Regular);
                     label1.Text = "Spider";
                     label2.Text = "Stones";
                     label3.Text = "Pinecone";
@@ -59,7 +77,10 @@ namespace HiddenObjectGame
                     label8.Text = "Skrew";
                     label9.Text = "Knife";
                     label10.Text = "Golden Bell";
-                    MessageBox.Show("                                                           First Level \n(If you want to skip the conversation with the wisp just click the red x (close) button in the top right corner)");
+                    label12.Text = "" + 0;
+                    MessageBox.Show("First Level ");
+                    button1.Enabled = true;
+                    button1.Text = "Hint";
                     break;
                 case 2:
                     Form2 f2 = new Form2(2);
@@ -130,8 +151,40 @@ namespace HiddenObjectGame
                 case 4:
                     Form2 f4 = new Form2(4);
                     f4.ShowDialog();
-                    MessageBox.Show("Yey... You Won ^_^ \nYour score is: "+label12.Text);
-                    Close();
+                    Form3 forma = new Form3();
+                    forma.ShowDialog();    
+                    player_name = forma.name;
+                    if (player_name == null)
+                        player_name = "Anonymous";
+
+                    int x = 0;
+                    int.TryParse(label12.Text, out x);
+                    if (ind == 10)
+                    {
+                        if (h.scores[9] < x)
+                        {
+                            h.scores[9] = x;
+                            h.names[9] = player_name;
+                        }
+                    }
+                    else
+                    {
+                        h.names[ind] = player_name;
+                        h.scores[ind++] = x;
+                    }
+                    h.sort();
+                    Form4 ff = new Form4(this);
+                    
+                    MessageBox.Show("Yey... "+ player_name +" You Won ^_^ \nYour score is: "+label12.Text);
+                    ff.ShowDialog();
+                    DialogResult d = MessageBox.Show("Play again?", "New Game?",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if (d == DialogResult.Yes)
+                    {
+                        level = 1;
+                        newGame();
+                    }
+                    else
+                        Close();
                     break;
             }
             pictureBox1.Image = bit;
