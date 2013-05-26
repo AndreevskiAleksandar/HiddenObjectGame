@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(38, 22);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(180, 186);
-            this.listBox1.TabIndex = 0;
             // 
             // button1
             // 
@@ -50,24 +45,54 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 25);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(243, 175);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Name";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Score";
+            this.Column2.Name = "Column2";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 261);
+            this.ClientSize = new System.Drawing.Size(267, 261);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HighScores";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

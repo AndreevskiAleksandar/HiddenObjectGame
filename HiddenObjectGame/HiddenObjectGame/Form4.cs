@@ -17,9 +17,10 @@ namespace HiddenObjectGame
             InitializeComponent();
             for (int i = 0; i < 10; i++)
             {
-                string s = String.Format("{0} {1,15}", f.h.names[i], f.h.scores[i]);
-                if(f.h.names[i]!=null)
-                listBox1.Items.Add(s);
+                //string s = String.Format("{0} {1,15}", f.h.names[i], f.h.scores[i]);
+                if (f.h.names[i] != null)
+                    dataGridView1.Rows.Add(f.h.names[i],f.h.scores[i]);
+                    
             }
         }
 
