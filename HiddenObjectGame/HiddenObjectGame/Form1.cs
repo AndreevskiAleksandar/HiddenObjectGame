@@ -28,7 +28,8 @@ namespace HiddenObjectGame
         {
             InitializeComponent();
             SoundPlayer player = new SoundPlayer(Resources.Silent_Hill_2_OST___Promise__Reprise_);
-            player.PlayLooping();
+            player.PlayLooping();  
+            // fajlot bese preku 50 mb so wav fajlot pa morav da go trgnam za da submitnam na code finki
             label1.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             label2.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
             label3.Font = new Font("Lucida Sans", 12f, FontStyle.Regular);
@@ -55,6 +56,7 @@ namespace HiddenObjectGame
                 case 1:
                     Form2 f = new Form2(1);
                     f.ShowDialog();
+                    MessageBox.Show("First Level ");
                     this.BackColor = Color.Gainsboro;
                     bit = new Bitmap(Resources.hidden_object_prison_final);
                     label1.Font = new Font(label1.Font, FontStyle.Regular);
@@ -78,7 +80,6 @@ namespace HiddenObjectGame
                     label9.Text = "Knife";
                     label10.Text = "Golden Bell";
                     label12.Text = "" + 0;
-                    MessageBox.Show("First Level ");
                     button1.Enabled = true;
                     button1.Text = "Hint";
                     break;
